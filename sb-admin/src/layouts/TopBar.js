@@ -6,7 +6,6 @@ import Link from "next/link";
 function TopBar() {
   const [userLogged, setuserLogged] = useState([]);
   const { data: session, status } = useSession();
-  
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("userLogged")) !== null) {

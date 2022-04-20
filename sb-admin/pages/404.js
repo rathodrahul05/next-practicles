@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import FullLayout from "../src/layouts/FullLayout";
 
@@ -13,7 +14,9 @@ export default function PageNotFound() {
         <p className="text-gray-500 mb-0">
           It looks like you found a glitch in the matrix...
         </p>
-        <a href="index.html">&larr; Back to Dashboard</a>
+        <Link href="/">
+          <a>&larr; Back to Dashboard</a>
+        </Link>
       </div>
     </div>
   );

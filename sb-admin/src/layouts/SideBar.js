@@ -188,7 +188,7 @@ function SideBar() {
             </Link>
             <div className="collapse-divider"></div>
             <h6 className="collapse-header">Other Pages:</h6>
-            <Link href={'/pagenotfound'}>
+            <Link href={'/404'}>
             <a className="collapse-item " >
               404 Page
             </a>
