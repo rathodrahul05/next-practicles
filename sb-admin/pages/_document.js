@@ -1,10 +1,9 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import React from 'react';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import React from "react";
 
 export default class MyDocument extends Document {
-
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
+    const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
 
@@ -12,7 +11,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body >
+        <body>
           <Main />
           <NextScript />
           {/*Bootstrap core JavaScript*/}
@@ -28,29 +27,27 @@ export default class MyDocument extends Document {
           {/* Page level plugins */}
           <script src="vendor/chart.js/Chart.min.js"></script>
 
-          {/* Page level custom scripts */}
-          {/* <script src="js/demo/chart-area-demo.js"></script>
-          <script src="js/demo/chart-pie-demo.js"></script> */}
-
           <script src="vendor/jquery/jquery.min.js"></script>
           <link
-          href="vendor/fontawesome-free/css/all.min.css"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        />
-        {/* Custom styles for this template*/}
+            href="vendor/fontawesome-free/css/all.min.css"
+            rel="stylesheet"
+            type="text/css"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet"
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          />
+          {/* Custom styles for this template*/}
 
-        <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-
+          <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+          <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"
+          ></script>
         </body>
       </Html>
     );
