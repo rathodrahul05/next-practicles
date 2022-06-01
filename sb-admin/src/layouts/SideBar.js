@@ -8,13 +8,11 @@ function SideBar() {
   const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("userLogged")) !== null) {
-      const temp = JSON.parse(localStorage.getItem("userLogged"));
+    if (JSON.parse(localStorage.getItem("userLogged")) !== null || JSON.parse(sessionStorage.getItem("userLogged")) !== null) {
+      const temp = JSON.parse(localStorage.getItem("userLogged"))??JSON.parse(sessionStorage.getItem("userLogged")) 
       const [user] = [...temp];
-      console.log(user);
+
       setuserLogged(temp);
-      //  console.log(Object.keys(session).length>0)
-      console.log(Object.keys(userLogged).length > 0);
     }
   }, [session]);
   return (
@@ -180,25 +178,17 @@ function SideBar() {
               <a className="collapse-item">Register</a>
             </Link>
 
-            <Link href={'/login-screens/forgot-password'}>
-            <a className="collapse-item" >
-              Forgot Password
-            </a>
-            
+            <Link href={"/login-screens/forgot-password"}>
+              <a className="collapse-item">Forgot Password</a>
             </Link>
             <div className="collapse-divider"></div>
             <h6 className="collapse-header">Other Pages:</h6>
-            <Link href={'/404'}>
-            <a className="collapse-item " >
-              404 Page
-            </a>
-            
+            <Link href={"/404"}>
+              <a className="collapse-item ">404 Page</a>
             </Link>
-           <Link href={'/blank'}>
-           <a className="collapse-item">
-              Blank Page
-            </a>
-           </Link>
+            <Link href={"/login-screens/blank"}>
+              <a className="collapse-item">Blank Page</a>
+            </Link>
           </div>
         </div>
       </li>
@@ -226,10 +216,7 @@ function SideBar() {
       <div className="text-center d-none d-md-inline">
         <button className="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-      
     </ul>
-
-    
   );
 }
 

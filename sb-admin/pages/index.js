@@ -8,21 +8,23 @@ import styles from "../styles/Home.module.css";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import FullLayout from "../src/layouts/FullLayout";
+import withAuth from "../src/components/withAuth";
 
 export default function Home() {
   const router = useRouter();
   const [userLogged, setuserLogged] = useState([]);
   const { data: session, status } = useSession();
-  console.log(session);
+ 
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("userLogged")) !== null) {
-      const temp = JSON.parse(localStorage.getItem("userLogged"));
+    if (JSON.parse(localStorage.getItem("userLogged")) !== null||JSON.parse(sessionStorage.getItem("userLogged")) !== null) {
+      router.push("/");
+      const temp = JSON.parse(localStorage.getItem("userLogged"))??JSON.parse(sessionStorage.getItem("userLogged"));
       const [user] = [...temp];
-      console.log(user);
+
       setuserLogged(temp);
-      //  console.log(Object.keys(session).length>0)
-      console.log(Object.keys(userLogged).length > 0);
+    } else {
+      router.push("/login-screens/login");
     }
   }, [session]);
   return (
@@ -517,6 +519,7 @@ Home.getLayout = function PageLayout(page) {
     </>
   );
 };
+// export default withAuth(Home)
 // export async function getServerSideProps(ctx) {
 //   return {
 //     props: {

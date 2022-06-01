@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
 function login({ providers }) {
   const router = useRouter();
   const { data: session, status } = useSession();
-  console.log("hi");
+ 
 
   const classnames = ["fab fa-google fa-fw", "fab fa-facebook-f fa-fw"];
   const [userCred, setuserCred] = useState({
@@ -50,8 +50,21 @@ function login({ providers }) {
         return record.email == userCred.email && record.pwd == userCred.pwd;
       });
 
-      console.log(userLogged);
-      localStorage.setItem("userLogged", JSON.stringify(userLogged));
+     if (userCred.remember) {
+       
+       localStorage.setItem("userLogged", JSON.stringify(userLogged));
+       userLogged[0]?.email == userCred.email &&
+       userLogged[0]?.pwd == userCred.pwd
+         ? (toast.success("Login Successfull", {
+             position: toast.POSITION.BOTTOM_RIGHT,
+           }),
+           router.push("/"))
+         : toast.error("Login Failed!!", {
+             position: toast.POSITION.BOTTOM_RIGHT,
+           });
+     }
+     else{
+      sessionStorage.setItem("userLogged", JSON.stringify(userLogged));
       userLogged[0]?.email == userCred.email &&
       userLogged[0]?.pwd == userCred.pwd
         ? (toast.success("Login Successfull", {
@@ -61,6 +74,7 @@ function login({ providers }) {
         : toast.error("Login Failed!!", {
             position: toast.POSITION.BOTTOM_RIGHT,
           });
+     }
     }
   };
   const {
@@ -72,6 +86,7 @@ function login({ providers }) {
     defaultValues: {
       email: "",
       pwd: "",
+      remember:false
     },
   });
   return (
@@ -137,11 +152,20 @@ function login({ providers }) {
                         </div>
                         <div className="form-group">
                           <div className="custom-control custom-checkbox small">
+                          <Controller
+                            render={({ field }) => (
                             <input
                               type="checkbox"
                               className="custom-control-input"
                               id="customCheck"
+                             {...field}
+                             onChange={(e) => field.onChange(e.target.checked)}
+                             checked={field.value}
                             />
+                            )}
+                            name="remember"
+                            control={control}
+                          />
                             <label
                               className="custom-control-label"
                               htmlFor="customCheck"
@@ -158,7 +182,7 @@ function login({ providers }) {
                         </button>
                         <hr />
 
-                        {Object.values(providers).map((provider, index) => {
+                        {Object.values(providers)?.map((provider, index) => {
                           return (
                             <a
                               key={index}

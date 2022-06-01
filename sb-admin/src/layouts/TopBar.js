@@ -8,13 +8,12 @@ function TopBar() {
   const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("userLogged")) !== null) {
-      const temp = JSON.parse(localStorage.getItem("userLogged"));
+    if (JSON.parse(localStorage.getItem("userLogged")) !== null||JSON.parse(sessionStorage.getItem("userLogged")) !== null) {
+      const temp = JSON.parse(localStorage.getItem("userLogged"))??JSON.parse(sessionStorage.getItem("userLogged")) 
       const [user] = [...temp];
-      console.log(user);
+     
       setuserLogged(temp);
-      //  console.log(Object.keys(session).length>0)
-      console.log(Object.keys(userLogged).length > 0);
+      
     }
   }, [session]);
   return (

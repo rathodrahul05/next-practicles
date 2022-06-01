@@ -3,8 +3,9 @@ import { getSession, SessionProvider } from "next-auth/react";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 
+
 function index({ children, session }) {
-  console.log("inside", session);
+  
   return (
     <div id="page-top">
       {/* <!-- Page Wrapper --> */}
