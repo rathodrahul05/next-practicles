@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch src/backend/db.json --port 5000"
+    "server": "json-server --watch src/backend/db.json --port 5000",
+    "export":"next export"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
