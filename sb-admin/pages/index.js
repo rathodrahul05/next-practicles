@@ -8,7 +8,8 @@ import styles from "../styles/Home.module.css";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import FullLayout from "../src/layouts/FullLayout";
-import withAuth from "../src/components/withAuth";
+
+
 
 export default function Home() {
   const router = useRouter();
@@ -432,7 +433,7 @@ export default function Home() {
                       </div>
                       <div className="card-body">
                         <div className="text-center">
-                          <img
+                          <image
                             className="img-fluid px-3 px-sm-4 mt-3 mb-4"
                             style={{ width: "25 rem" }}
                             src="img/undraw_posting_photo.svg"
@@ -443,8 +444,8 @@ export default function Home() {
                           Add some quality, svg illustrations to your project
                           courtesy of{" "}
                           <a
-                            target="_blank"
-                            rel="nofollow"
+                            
+                            rel="opener"
                             href="https://undraw.co/"
                           >
                             unDraw
@@ -454,8 +455,8 @@ export default function Home() {
                           attribution!
                         </p>
                         <a
-                          target="_blank"
-                          rel="nofollow"
+                         
+                          rel="opener"
                           href="https://undraw.co/"
                         >
                           Browse Illustrations on unDraw &rarr;

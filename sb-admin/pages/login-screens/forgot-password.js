@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
     .email("Email must be a valid email address"),
 });
 
-function forgotpassword() {
+function ForgotPassword() {
   const router = useRouter();
   const {
     handleSubmit,
@@ -45,7 +45,7 @@ function forgotpassword() {
                         </h1>
                         <p className="mb-4">
                           We get it, stuff happens. Just enter your email
-                          address below and we'll send you a link to reset your
+                          address below and we ll send you a link to reset your
                           password!
                         </p>
                       </div>
@@ -148,4 +148,4 @@ function forgotpassword() {
   );
 }
 
-export default forgotpassword;
+export default ForgotPassword;

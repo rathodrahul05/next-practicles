@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
     ),
 });
 
-function login({ providers }) {
+function Login({ providers }) {
   const router = useRouter();
   const { data: session, status } = useSession();
  
@@ -228,4 +228,4 @@ export async function getServerSideProps(context) {
     props: { providers },
   };
 }
-export default login;
+export default Login;

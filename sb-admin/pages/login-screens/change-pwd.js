@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
     .required("Password is required"),
 });
 
-function changePassword() {
+function ChangePassword() {
   const router = useRouter();
 
   const {
@@ -168,4 +168,4 @@ function changePassword() {
   );
 }
 
-export default changePassword;
+export default ChangePassword;

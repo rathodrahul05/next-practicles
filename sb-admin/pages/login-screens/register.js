@@ -26,7 +26,7 @@ const validationSchema = Yup.object().shape({
     .required("Password is required"),
 });
 
-function register() {
+function Register() {
   const router = useRouter();
 
   const [userRecord, setuserRecord] = useState([]);
@@ -256,4 +256,4 @@ function register() {
   );
 }
 
-export default register;
+export default Register;
